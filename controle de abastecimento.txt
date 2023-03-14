@@ -1,0 +1,46 @@
+algoritmo "controleAbastecimentoAeronaves"
+
+procedimento soma
+ inicio
+   trechoTotal <- (trechoPlanejado + trechoAlternativo)
+   trechoMargem  <- trechoTotal + (trechoTotal * 30/100)
+   totalCombustivel <- (trechoMargem * media)
+   abastecer <- totalCombustivel - contem
+fim_procedimento
+
+var
+  media, totalCombustivel, trechoMargem, abastecer, capacidadeMaxima, trechoPlanejado, trechoAlternativo, contem, trechoTotal:real
+
+inicio
+         escreva("Média da aeronave em litros por quilômetros:")
+         leia(media)
+         escreva("Capacidade máxima em litros do tanque:")
+         leia(capacidadeMaxima)
+         escreva ("Quantidade de quilômetros do trecho planejado:")
+         leia(trechoPlanejado)
+         escreva("Quantidade de quilômetros do trecho alternativo:")
+         leia(trechoAlternativo)
+         escreva("Quantidade de combustível já na aeronave:")
+         leia(contem)
+
+     soma
+
+         escreval("Para seu destino deve ter ", totalCombustivel ," litros de combustivel ")
+
+         se (totalCombustivel > capacidadeMaxima) entao
+             escreval("Voo Reprovado, reveja seu planejamento.")
+         senao
+             escreval("Voo Aprovado, bom voo!")
+             escreval("-----------------------------------------------")
+             escreval("Trecho principal de ", trechoPlanejado ," KM")
+             escreval("Trecho alternativo de ", trechoAlternativo ," KM")
+             escreval("Trecho total com margem de segurança de ", trechoMargem  ," km")
+             escreval("Combustivel necessário de", totalCombustivel ," Litros, já incluso margem de segurança")
+             escreval("Será necessário abastecer ", abastecer ," Litros")
+        fim_se
+
+        se (totalCombustivel = contem) então
+             escreval("Quantidade de litros suficiente para o trecho")
+        fim_se
+
+fim
